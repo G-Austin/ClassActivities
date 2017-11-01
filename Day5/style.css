@@ -1,0 +1,36 @@
+p {
+	font-family: 'Roboto Slab', serif;
+}
+
+.container {
+	width: 400px;
+	height: 800px;
+	border: solid;
+	border-width: 3px;
+
+}
+.woot {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+
+.sweet {
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 80px;
+	font-family: 'Saira', sans-serif;
+
+}
+.sweet:hover {
+	background-color: red;
+	transition: 2s;
+	font-size: 40px;
+}
+
+.click{
+	background-color: orange;
+}
+.click:visited {
+	background-color: blue;
+
+}

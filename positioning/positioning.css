@@ -1,0 +1,10 @@
+div {
+	margin: 100px;
+}
+
+aside {
+	position: relative;
+	/*margin: 100px;*/
+	height: 200px;
+	background: gray;
+}
