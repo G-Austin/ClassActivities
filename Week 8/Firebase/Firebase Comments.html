@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Click Button with Firebase!</title>
+
+    <!--firebase link to make the application link -->
+    <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+
+  </head>
+
+  <body>
+
+    <!--The HTML to show how many times the button has been clicked-->
+    <h1>Ouch! You've clicked me <span id="click-value"></span> times!</h1>
+
+    <!-- The button that shows up in the DOM-->
+    <button id="click-button">Click Me!!!!</button>
+
+    <!--jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Grab the infomation from firebase to link to your app.
+    ================================================================================== -->
+    <script>
+
+    var config = {
+      apiKey: "AIzaSyCQ3XIMZuUJKKTn1xfoD7CC2yLGznX6W_I",
+      authDomain: "thisisatest-6901b.firebaseapp.com",
+      databaseURL: "https://thisisatest-6901b.firebaseio.com",
+      projectId: "thisisatest-6901b",
+      storageBucket: "thisisatest-6901b.appspot.com",
+      messagingSenderId: "444807869836"
+    };
+
+    firebase.initializeApp(config);
+
+    // VARIABLES
+    // set Counter and refernce firebase database
+
+    var database = firebase.database();
+    var clickCounter = 0;
+
+    // FUNCTIONS + EVENTS
+    // An event listener that recognizes the button being clicked which then impacts/increases the clickCounter and sends/saves it to the firebase database
+
+    $("#click-button").on("click", function() {
+      clickCounter++;
+      database.ref().set({
+        //key : and value
+        clickCount: clickCounter
+      });
+    });
+
+    // MAIN PROCESS + INITIAL CODE
+    // Data binding
+    // Listening for change in value and putting it into the DOM.
+    // This pulls the value from the database in case someone else clicks on the button from a different browser, it updates to your screen.
+
+    database.ref().on("value", function(snapshot) {
+      console.log(snapshot.val());
+      $("#click-value").text(snapshot.val().clickCount);
+      clickCounter = snapshot.val().clickCount;
+    }, function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+
+    </script>
+
+  </body>
+
+</html>

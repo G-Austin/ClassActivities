@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo 2</title>
+	<style type="text/css">
+		.fancy {
+			font-size: 100px;
+			color:green;
+		}
+	</style>
+</head>
+<body>
+	<div id="empty-div"></div>
+
+	<script>
+		var targetDiv = document.getElementByID('empty-div');
+
+		targetDiv.innerHTML = "Hello Students";
+
+		var newDiv = document.createElement("div");
+
+		newDiv.innerHTML = "A pleasure to meet you!";
+
+		targetDiv.appendChild(newDiv);
+
+		newDiv.setAttribute("class", "fancy");
+	</script>
+</body>
+</html>

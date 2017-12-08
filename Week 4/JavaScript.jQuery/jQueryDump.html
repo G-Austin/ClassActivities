@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic jQuery Dump</title>
+	<style type="text/css">
+		#fancy {
+			font-size: 100px;
+			color: blue;
+		}
+	</style>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.js"
+	  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	  crossorigin="anonymous">
+	</script>
+</head>
+	<body>
+
+		<div id="empty-div"></div>
+
+		<script type="text/javascript">
+
+		$('#empty-div').html("<h1>Hello friends!</h1>");
+
+		var newDiv = $("<div>");
+		newDiv.text("A pleaseure to meet you!");
+
+		$("#empty-div").append(newDiv);
+		
+	
+		
+
+		</script>
+
+	</body>
+</html>
